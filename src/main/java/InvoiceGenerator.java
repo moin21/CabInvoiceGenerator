@@ -16,4 +16,20 @@ public class InvoiceGenerator {
 
 		return fare > 5 ? fare : 5;
 	}
+
+	/**
+	 * Method to calculate total fare from multiple rides When there are elements of
+	 * Rides array: for every element, called generateInvoice method and returned
+	 * fare added to total fare
+	 * 
+	 * @param rides - array of rides
+	 * @return - totalFare
+	 */
+	public double calculateTotalFare(Rides[] rides) {
+		double totalFare = 0;
+		for (Rides ride : rides) {
+			totalFare += this.generateInvoice(ride);
+		}
+		return totalFare;
+	}
 }

@@ -32,12 +32,26 @@ public class InvoiceGenerator {
 		}
 		return totalFare;
 	}
+
+	/**
+	 * Method to get no. of rides
+	 * 
+	 * @param rides - array of rides
+	 * @return - length of array
+	 */
 	public int getNumberOfRides(Rides[] rides) {
-		
+
 		return rides.length;
 	}
-public double getAvarageRideFare(Rides[] rides) {
-		
-	return calculateTotalFare(rides) / rides.length;
+
+	/**
+	 * Method to calculate average ride fare
+	 * 
+	 * @param rides - array of rides
+	 * @return - length of array
+	 */
+	public double getAvarageRideFare(Rides[] rides) {
+
+		return calculateTotalFare(rides) / rides.length;
 	}
 }

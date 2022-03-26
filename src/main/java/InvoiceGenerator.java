@@ -1,5 +1,8 @@
+import java.util.HashMap;
+import java.util.Map;
 
 public class InvoiceGenerator {
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to cab invoice generator");
 	}
@@ -25,12 +28,12 @@ public class InvoiceGenerator {
 	 * @param rides - array of rides
 	 * @return - totalFare
 	 */
-	public double calculateTotalFare(Rides[] rides) {
+	public Invoice calculateTotalFare(Rides[] rides) {
 		double totalFare = 0;
 		for (Rides ride : rides) {
 			totalFare += this.generateInvoice(ride);
 		}
-		return totalFare;
+		return new Invoice(rides.length, totalFare, totalFare / rides.length);
 	}
 
 	/**
@@ -52,6 +55,16 @@ public class InvoiceGenerator {
 	 */
 	public double getAvarageRideFare(Rides[] rides) {
 
-		return calculateTotalFare(rides) / rides.length;
+		return calculateTotalFare(rides).totalFare / rides.length;
+	}
+
+	public Invoice generateInvoice(int i, HashMap<Integer, Rides[]> rideRepository) {
+
+		for (Map.Entry<Integer, Rides[]> rideEntry : rideRepository.entrySet()) {
+			if (rideEntry.getKey() == i)
+				return calculateTotalFare(rideEntry.getValue());
+		}
+
+		return null;
 	}
 }

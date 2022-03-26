@@ -6,10 +6,11 @@ public class Invoice {
 	public double avgFare;
 
 	/**
-	 *  constructor
+	 * constructor
+	 * 
 	 * @param rideCount - no. of rides
 	 * @param totalFare - total fare
-	 * @param avgFare - average fare = total fare/ no. of rides
+	 * @param avgFare   - average fare = total fare/ no. of rides
 	 */
 	public Invoice(int rideCount, double totalFare, double avgFare) {
 		super();
